@@ -32,6 +32,21 @@ namespace LINQ
 		{
 			return a.FirstOrDefault(El => El % 10 == d);
 		}
-		
+		/*
+		 * Дано целое число L (> 0) и строковая последовательность A. Вывести последнюю строку из A,
+		 * начинающуюся с цифры и имеющую длину L. Если требуемых строк в последовательности A нет,
+		 * то вывести строку «Not found».
+		 * Указание. Для обработки ситуации, связанной с отсутствием требуемых строк, использовать
+		 * операцию ??.
+		 */
+		public string GetLastLineStartingInDigitAndHasLengthL(int l, IEnumerable<string> a)
+		{
+			string Res = a.LastOrDefault(Line => Char.IsDigit(Line[0]) && Line.Length == l);
+			return Res ?? "Not found";
+		}
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello World!");
+		}
 	}
 }
