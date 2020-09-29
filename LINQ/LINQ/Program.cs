@@ -23,10 +23,15 @@ namespace LINQ
 			Res.LastNegative = enumerableInt.LastOrDefault(El => El < 0);
 			return Res;
 		}
-		
-		static void Main(string[] args)
+		/*
+		 * Дана цифра D (однозначное целое число) и целочисленная последовательность A.
+		 * Вывести первый положительный элемент последовательности A, оканчивающийся цифрой D.
+		 * Если требуемых элементов в последовательности A нет, то вывести 0.
+		 */
+		public int GetFirstPositiveElementEndindInD(int d, IEnumerable<int> a)
 		{
-			Console.WriteLine("Hello World!");
+			return a.FirstOrDefault(El => El % 10 == d);
 		}
+		
 	}
 }
