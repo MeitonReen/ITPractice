@@ -44,6 +44,19 @@ namespace LINQ
 			string Res = a.LastOrDefault(Line => Char.IsDigit(Line[0]) && Line.Length == l);
 			return Res ?? "Not found";
 		}
+		/*
+		 * Дано целое число K (> 0) и целочисленная последовательность A. Найти
+		 * теоретико-множественную разность двух фрагментов A: первый содержит все четные числа,
+		 * а второй — все числа с порядковыми номерами, большими K. В полученной последовательности
+		 * (не содержащей одинаковых элементов) поменять порядок элементов на обратный.
+		 */
+		public IEnumerable<int> GetIntersectBetweenTwoPartsA(int k, IEnumerable<int> a)
+		{
+			return (a.TakeWhile(Num => Num % 2 == 0)).
+				Intersect(a.TakeLast(k + 1)).
+					Distinct().
+						Reverse();
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
