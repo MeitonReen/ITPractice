@@ -57,6 +57,16 @@ namespace LINQ
 					Distinct().
 						Reverse();
 		}
+
+		/*
+		 * Дана строковая последовательность. Строки последовательности содержат только заглавные
+		 * буквы латинского алфавита. Отсортировать последовательность по возрастанию длин строк,
+		 * а строки одинаковой длины — в лексикографическом порядке по убыванию.
+		 */
+		public IEnumerable<string> SortByAscendingAndLexicographicDescending(IEnumerable<string> strings)
+		{
+			return strings.OrderBy(str => str.Length).ThenByDescending(str => str);
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
