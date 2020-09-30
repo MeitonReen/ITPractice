@@ -99,9 +99,26 @@ namespace LINQ
 		 */
 		public IEnumerable<int> GetIntSequence(IEnumerable<int> intSeq)
 		{
-			return intSeq.Select((Int, Index) => Int * (Index++))
-				.Where(Int => Math.Abs(Int % 100) < 1)
-					.Reverse();
+			return
+				intSeq.Select((Int, Index) => Int * (Index++))
+					.Where(Int => Math.Abs(Int % 100) < 1)
+						.Reverse();
+		}
+		/*
+		 * Дана строковая последовательность A. Строки последовательности содержат только заглавные буквы
+		 * латинского алфавита. Получить новую последовательность строк, элементы которой определяются по
+		 * соответствующим элементам A следующим образом: пустые строки в новую последовательность не включаются,
+		 * а к непустым приписывается порядковый номер данной строки в исходной последовательности (например,
+		 * если пятый элемент A имеет вид «ABC», то в полученной последовательности он будет иметь вид «ABC5»).
+		 * При нумерации должны учитываться и пустые строки последовательности A. Отсортировать полученную
+		 * последовательность в лексикографическом порядке по возрастанию.
+		 */
+		public IEnumerable<string> GetSequenceString(IEnumerable<string> a)
+		{
+			return
+				a.Select((Str, Index) => Str.Any() ? Str.Concat(Index.ToString()).ToString() : string.Empty)
+					.Where(Str => string.IsNullOrEmpty(Str))
+						.OrderBy(Str => Str);
 		}
 		static void Main(string[] args)
 		{
