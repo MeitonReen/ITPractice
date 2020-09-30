@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 
 namespace LINQ
 {
@@ -12,12 +13,12 @@ namespace LINQ
 		 * так и отрицательные числа. Вывести ее первый положительный элемент и
 		 * последний отрицательный элемент.
 		 */
-		struct TwoValue
+		public struct TwoValue
 		{
 			public int? FirstPositive;
 			public int? LastNegative;
 		}
-		static TwoValue GetFirstPositiveAndLastNegativeElement(IEnumerable<int> enumerableInt)
+		public static TwoValue GetFirstPositiveAndLastNegativeElement(IEnumerable<int> enumerableInt)
 		{
 			TwoValue Res;
 			Res.FirstPositive = enumerableInt.FirstOrDefault(El => El > 0);
@@ -29,7 +30,7 @@ namespace LINQ
 		 * Вывести первый положительный элемент последовательности A, оканчивающийся цифрой D.
 		 * Если требуемых элементов в последовательности A нет, то вывести 0.
 		 */
-		public int GetFirstPositiveElementEndindInD(int d, IEnumerable<int> a)
+		public static int GetFirstPositiveElementEndindInD(int d, IEnumerable<int> a)
 		{
 			return a.FirstOrDefault(El => El % 10 == d);
 		}
@@ -40,7 +41,7 @@ namespace LINQ
 		 * Указание. Для обработки ситуации, связанной с отсутствием требуемых строк, использовать
 		 * операцию ??.
 		 */
-		public string GetLastLineStartingInDigitAndHasLengthL(int l, IEnumerable<string> a)
+		public static string GetLastLineStartingInDigitAndHasLengthL(int l, IEnumerable<string> a)
 		{
 			string Res = a.LastOrDefault(Line => Char.IsDigit(Line[0]) && Line.Length == l);
 			return Res ?? "Not found";
@@ -51,7 +52,7 @@ namespace LINQ
 		 * а второй — все числа с порядковыми номерами, большими K. В полученной последовательности
 		 * (не содержащей одинаковых элементов) поменять порядок элементов на обратный.
 		 */
-		public IEnumerable<int> GetIntersectBetweenTwoPartsA(int k, IEnumerable<int> a)
+		public static IEnumerable<int> GetIntersectBetweenTwoPartsA(int k, IEnumerable<int> a)
 		{
 			return (a.TakeWhile(Num => Num % 2 == 0)).
 				Intersect(a.TakeLast(k + 1)).
@@ -64,7 +65,7 @@ namespace LINQ
 		 * буквы латинского алфавита. Отсортировать последовательность по возрастанию длин строк,
 		 * а строки одинаковой длины — в лексикографическом порядке по убыванию.
 		 */
-		public IEnumerable<string> SortByAscendingAndLexicographicDescending(IEnumerable<string> strings)
+		public static IEnumerable<string> SortByAscendingAndLexicographicDescending(IEnumerable<string> strings)
 		{
 			return strings.OrderBy(str => str.Length).ThenByDescending(str => str);
 		}
@@ -76,7 +77,7 @@ namespace LINQ
 		 * элементов) отсортировать по возрастанию длин строк, а строки одинаковой длины — в лексикографическом
 		 * порядке по возрастанию.
 		 */
-		public IEnumerable<string> GetIntersectOfTwoPartsA(int k, IEnumerable<string> a)
+		public static IEnumerable<string> GetIntersectOfTwoPartsA(int k, IEnumerable<string> a)
 		{
 			return a.Take(k)
 				.Intersect(a.Reverse().TakeWhile(str => !char.IsDigit(str[str.Length - 1])))
@@ -88,7 +89,7 @@ namespace LINQ
 		 * которой является начальным символом соответствующей строки из A. Порядок символов должен быть обратным
 		 * по отношению к порядку элементов исходной последовательности.
 		 */
-		public IEnumerable<char> GetCharSequence(IEnumerable<string> a)
+		public static IEnumerable<char> GetCharSequence(IEnumerable<string> a)
 		{
 			return a.Reverse().Select(str => str[0]);
 		}
@@ -98,7 +99,7 @@ namespace LINQ
 		 * (1, 2, …). В полученной последовательности удалить все элементы, не являющиеся двузначными, и поменять
 		 * порядок оставшихся элементов на обратный.
 		 */
-		public IEnumerable<int> GetIntSequence(IEnumerable<int> intSeq)
+		public static IEnumerable<int> GetIntSequence(IEnumerable<int> intSeq)
 		{
 			return
 				intSeq.Select((Int, Index) => Int * (Index++))
@@ -114,7 +115,7 @@ namespace LINQ
 		 * При нумерации должны учитываться и пустые строки последовательности A. Отсортировать полученную
 		 * последовательность в лексикографическом порядке по возрастанию.
 		 */
-		public IEnumerable<string> GetStringSequence(IEnumerable<string> a)
+		public static IEnumerable<string> GetStringSequence(IEnumerable<string> a)
 		{
 			return
 				a.Select((Str, Index) => Str.Any() ? Str.Concat(Index.ToString()).ToString() : string.Empty)
@@ -131,7 +132,8 @@ namespace LINQ
 		 * «49-129». Порядок следования пар должен определяться исходным порядком элементов последовательности A,
 		 * а для равных первых элементов — порядком элементов последовательности B.
 		 */
-		public IEnumerable<string> GetStringSequenceFromJoinedIntSequences(IEnumerable<int> a, IEnumerable<int> b)
+		public static IEnumerable<string> GetStringSequenceFromJoinedIntSequences(
+			IEnumerable<int> a, IEnumerable<int> b)
 		{
 			return
 				a.Join(b, Ela => Ela % 10, Elb => Elb % 10, (Ela, Elb) => Ela.ToString() + '-' + Elb.ToString());
@@ -142,11 +144,26 @@ namespace LINQ
 		 * в исходной последовательности. Полученную последовательность строк упорядочить по возрастанию кодов
 		 * их начальных символов.
 		 */
-		public IEnumerable<string> FilterStringSequence(IEnumerable<string> strSeq)
+		public static IEnumerable<string> FilterStringSequence(IEnumerable<string> strSeq)
 		{
 			return strSeq.GroupBy(Str => Str[0], (Key, StrSeqByKey) =>
 				StrSeqByKey.OrderByDescending(Str => Str.Length).First())
 					.OrderBy(Str => char.GetNumericValue(Str[0]));
+		}
+		/*
+		 * Дана последовательность непустых строк A, содержащих только заглавные буквы латинского алфавита.
+		 * Для всех строк, начинающихся с одной и той же буквы, определить их суммарную длину и получить
+		 * последовательность строк вида «S-C», где S — суммарная длина всех строк из A, которые начинаются
+		 * с буквы С. Полученную последовательность упорядочить по убыванию числовых значений сумм, а при
+		 * равных значениях сумм — по возрастанию кодов символов C.
+		 */
+		public static IEnumerable<string> GetStringSequence2(IEnumerable<string> a)
+		{
+			return
+				a.GroupBy(Str => Str[0], (Key, StrSeqByKey) =>
+					StrSeqByKey.Sum(Str => Str.Length).ToString() + '-' + Key.ToString())
+						.OrderByDescending(Str => int.Parse(Str.TakeWhile(Char => Char == '-').ToString()))
+							.ThenBy(Str => int.Parse(Str.Reverse().TakeWhile(Char => Char == '-').ToString()));
 		}
 		static void Main(string[] args)
 		{
