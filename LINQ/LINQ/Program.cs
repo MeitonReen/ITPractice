@@ -91,6 +91,18 @@ namespace LINQ
 		{
 			return a.Reverse().Select(str => str[0]);
 		}
+		/*
+		 * Дана целочисленная последовательность. Получить последовательность чисел, каждый элемент которой
+		 * равен произведению соответствующего элемента исходной последовательности на его порядковый номер
+		 * (1, 2, …). В полученной последовательности удалить все элементы, не являющиеся двузначными, и поменять
+		 * порядок оставшихся элементов на обратный.
+		 */
+		public IEnumerable<int> GetIntSequence(IEnumerable<int> intSeq)
+		{
+			return intSeq.Select((Int, Index) => Int * (Index++))
+				.Where(Int => Math.Abs(Int % 100) < 1)
+					.Reverse();
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
