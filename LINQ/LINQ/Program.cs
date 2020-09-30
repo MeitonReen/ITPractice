@@ -67,6 +67,21 @@ namespace LINQ
 		{
 			return strings.OrderBy(str => str.Length).ThenByDescending(str => str);
 		}
+		/*
+		 * Дано целое число K (> 0) и последовательность непустых строк A. Строки последовательности содержат
+		 * только цифры и заглавные буквы латинского алфавита. Найти теоретико-множественное пересечение двух
+		 * фрагментов A: первый содержит K начальных элементов, а второй — все элементы, расположенные после
+		 * последнего элемента, оканчивающегося цифрой. Полученную последовательность (не содержащую одинаковых
+		 * элементов) отсортировать по возрастанию длин строк, а строки одинаковой длины — в лексикографическом
+		 * порядке по возрастанию.
+		 */
+		public IEnumerable<string> GetIntersectOfTwoPartsA(int k, IEnumerable<string> a)
+		{
+			return a.Take(k)
+				.Intersect(a.Reverse().TakeWhile(str => !char.IsDigit(str[str.Length - 1])))
+					.OrderBy(str => str.Length)
+						.ThenBy(str => str);
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
