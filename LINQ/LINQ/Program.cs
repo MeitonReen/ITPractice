@@ -82,6 +82,15 @@ namespace LINQ
 					.OrderBy(str => str.Length)
 						.ThenBy(str => str);
 		}
+		/*
+		 * Дана последовательность непустых строк A. Получить последовательность символов, каждый элемент
+		 * которой является начальным символом соответствующей строки из A. Порядок символов должен быть обратным
+		 * по отношению к порядку элементов исходной последовательности.
+		 */
+		public IEnumerable<char> GetCharSequence(IEnumerable<string> a)
+		{
+			return a.Reverse().Select(str => str[0]);
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
