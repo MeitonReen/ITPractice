@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace LINQ
 {
@@ -113,12 +114,27 @@ namespace LINQ
 		 * При нумерации должны учитываться и пустые строки последовательности A. Отсортировать полученную
 		 * последовательность в лексикографическом порядке по возрастанию.
 		 */
-		public IEnumerable<string> GetSequenceString(IEnumerable<string> a)
+		public IEnumerable<string> GetStringSequence(IEnumerable<string> a)
 		{
 			return
 				a.Select((Str, Index) => Str.Any() ? Str.Concat(Index.ToString()).ToString() : string.Empty)
 					.Where(Str => string.IsNullOrEmpty(Str))
 						.OrderBy(Str => Str);
+		}
+		/*
+		 * Даны последовательности положительных целых чисел A и B; все числа в каждой последовательности различны.
+		 * Найти последовательность всех пар чисел, удовлетворяющих следующим условиям: первый элемент пары
+		 * принадлежит последовательности A, второй принадлежит B, и оба элемента оканчиваются одной и той же
+		 * цифрой. Результирующая последовательность называется внутренним объединением последовательностей
+		 * A и B по ключу, определяемому последними цифрами исходных чисел. Представить найденное объединение
+		 * в виде последовательности строк, содержащих первый и второй элементы пары, разделенные дефисом, например,
+		 * «49-129». Порядок следования пар должен определяться исходным порядком элементов последовательности A,
+		 * а для равных первых элементов — порядком элементов последовательности B.
+		 */
+		public IEnumerable<string> GetStringSequenceFromJoinedIntSequences(IEnumerable<int> a, IEnumerable<int> b)
+		{
+			return
+				a.Join(b, Ela => Ela % 10, Elb => Elb % 10, (Ela, Elb) => Ela.ToString() + '-' + Elb.ToString());
 		}
 		static void Main(string[] args)
 		{
