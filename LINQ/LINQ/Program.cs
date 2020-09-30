@@ -136,6 +136,18 @@ namespace LINQ
 			return
 				a.Join(b, Ela => Ela % 10, Elb => Elb % 10, (Ela, Elb) => Ela.ToString() + '-' + Elb.ToString());
 		}
+		/*
+		 * Дана последовательность непустых строк. Среди всех строк, начинающихся с одного и того же символа,
+		 * выбрать наиболее длинную. Если таких строк несколько, то выбрать первую по порядку их следования
+		 * в исходной последовательности. Полученную последовательность строк упорядочить по возрастанию кодов
+		 * их начальных символов.
+		 */
+		public IEnumerable<string> FilterStringSequence(IEnumerable<string> strSeq)
+		{
+			return strSeq.GroupBy(Str => Str[0], (Key, StrSeqByKey) =>
+				StrSeqByKey.OrderByDescending(Str => Str.Length).First())
+					.OrderBy(Str => char.GetNumericValue(Str[0]));
+		}
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Hello World!");
