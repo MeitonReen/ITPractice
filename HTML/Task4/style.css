@@ -1,0 +1,16 @@
+html {
+    background-color: #202020;
+    color: #909090;
+    min-width: 500px;
+    width: 100%;
+}
+a:link {
+    color: #909090;
+}
+a:visited {
+    color: #909090;
+}
+a:hover {
+    color: #ffffff;
+}
+
