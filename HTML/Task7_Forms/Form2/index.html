@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="payment-form.css">
+    <title>My test page</title>
+  </head>
+  <body>
+    <form>
+      <h1>Форма оплаты</h1>
+      <p>Обязательные для заполнения поля помечены: "<strong>*</strong>"</p>
+
+      <section>
+        <h2>Контактная информация</h2>
+        <fieldset>
+          <legend>Заголовок</legend>
+          <ul>
+              <li>
+                <label for="title_1">Мистер</label>
+                <input type="radio" id="title_1" name="title" value="M." >
+              </li>
+              <li>
+                <label for="title_2">Мисс</label>
+                <input type="radio" id="title_2" name="title" value="Ms.">
+              </li>
+          </ul>
+        </fieldset>
+        <p>
+          <label for="name">
+            <span>Имя: </span>
+            <strong><abbr title="Обязательно для заполнения">*</abbr></strong>
+          </label>
+          <input type="text" id="name" name="username">
+        </p>
+        <p>
+          <label for="mail">
+            <span>E-mail: </span>
+            <strong><abbr title="Обязательно для заполнения">*</abbr></strong>
+          </label>
+          <input type="email" id="mail" name="usermail">
+        </p>
+        <p>
+          <label for="pwd">
+            <span>Пароль: </span>
+            <strong><abbr title="Обязательно для заполнения">*</abbr></strong>
+          </label>
+          <input type="password" id="pwd" name="password">
+        </p>
+    </section>
+
+    <section>
+      <h2>Платёжная информация</h2>
+      <p>
+        <label for="card">
+          <span>Тип карты:</span>
+        </label>
+        <select id="card" name="usercard">
+          <option value="visa">Visa</option>
+          <option value="mc">Mastercard</option>
+          <option value="amex">American Express</option>
+        </select>
+      </p>
+      <p>
+        <label for="number">
+          <span>Номер карты:</span>
+          <strong><abbr title="Обязательно для заполнения">*</abbr></strong>
+        </label>
+        <input type="number" id="number" name="cardnumber">
+      </p>
+      <p>
+        <label for="date">
+          <span>Лимит карты до:</span>
+          <strong><abbr title="Обязательно для заполнения">*</abbr></strong>
+          <em>формат ввода: мм/гг</em>
+        </label>
+        <input type="date" id="date" name="expiration">
+      </p>
+    </section>
+
+    <p> <button type="submit">Проверка платежа</button> </p>
+    </form>
+
+   
+
+  </body>
+</html>
