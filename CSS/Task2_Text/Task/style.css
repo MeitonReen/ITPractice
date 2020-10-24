@@ -1,0 +1,112 @@
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #8b8b8b;
+  border-bottom: 5px solid #8b8b8b;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+html{
+  font-size: 10px;
+  background-color: #1b1b1b;
+  color: #8b8b8b;
+}
+
+h1{
+  font-family: "Libre Baskerville";
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+h2{
+  font-family: "Libre Baskerville";
+  font-weight: bold;
+  font-size: 2.5rem; 
+}
+
+p{
+  font-family: "Libre Baskerville";
+  font-style: italic;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+li{
+  font-family: "Carter One";
+  font-size: 1.2rem;
+}
+section h2 + p{
+  text-indent: 3rem;
+}
+
+nav li{
+  font-size: 2rem;
+  list-style-type: none;
+  border: 2px solid #8b8b8b;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+nav li:hover{
+  background-color: #8b8b8b;
+}
+
+nav a{
+  display: block;
+  text-decoration: none;
+}
+nav a:hover{
+  color: #1b1b1b;
+}
+
+a[href*="http"] {
+  background: url('external-link-52.png') no-repeat 100% 0;
+  background-size: 10px 10px;
+  padding-right: 15px;
+}
+
+a:hover, a:link, a:active, a:visited {
+  color: #8b8b8b;
+}
+
+a:focus {
+  border: 1px dotted;
+}
+

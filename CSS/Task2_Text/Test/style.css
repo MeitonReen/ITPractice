@@ -1,0 +1,94 @@
+@import "style2.css";
+html {
+  font-size: 10px;
+  background-color: #222222;
+  color: #b6b6b6;
+}
+
+p{
+  font-size: 3rem;
+  font-family: 'Dancing Script';
+}
+h1{
+  font-size: 3rem;
+}
+
+h2{
+  font-size: 2.5rem;
+}
+
+li{
+  font-size: 2rem;
+  line-height: 1.5;
+  list-style-type: none;
+  padding-left: 2rem;
+  background-image: url(star.svg);
+  background-position: 0,0;
+  background-size: 1.6rem;
+  background-repeat: no-repeat;
+}
+
+a{
+  font-size: 2rem;
+}
+
+a:link {
+  color: #265301;
+}
+
+a:visited {
+  color: #437A16;
+}
+
+a:focus {
+  border-bottom: 1px solid;
+  background: #BAE498;
+}
+
+a:hover {
+  border-bottom: 1px solid;     
+  background: #CDFEAA;
+}
+
+a:active {
+  background: #265301;
+  color: #CDFEAA;
+}
+
+a[href*="http"] {
+  background: url('https://mdn.mozillademos.org/files/12982/external-link-52.png') no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
+
+dt{
+  font-size: 2rem;
+}
+dd{
+  font-size: 1.8rem;
+}
+
+.itallic{
+  font-style: italic;
+  text-align: justify;
+  text-align-last: justify;
+  line-height: 2;
+}
+
+.bold{
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.uppercase{
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.overline{
+  text-decoration: overline;
+  text-shadow: 2px 2px 3px #da6363;
+  word-spacing: 5px;
+}
