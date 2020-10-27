@@ -1,0 +1,192 @@
+@import "style2.css";
+html {
+  font-size: 10px;
+  background-color: #222222;
+  font-family: 'Dancing Script';
+  color: #b6b6b6;
+}
+
+p{
+  font-size: 3rem;
+}
+h1{
+  font-family: "rubikblack";
+  font-size: 7rem;
+  text-align: center;
+  background-image: url(leopardskin.jpg);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+}
+
+h2{
+  font-size: 2.5rem;
+}
+
+li{
+  font-size: 2rem;
+  line-height: 1.5;
+  list-style-type: none;
+  background-size: 1.6rem;
+  background-repeat: no-repeat;
+}
+
+dt{
+  font-size: 2rem;
+}
+dd{
+  font-size: 1.8rem;
+}
+
+.itallic{
+  font-style: italic;
+  text-align: justify;
+  text-align-last: justify;
+  line-height: 2;
+}
+
+.bold{
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.uppercase{
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.overline{
+  text-decoration: overline;
+  text-shadow: 2px 2px 3px #da6363;
+  word-spacing: 5px;
+}
+
+nav li{
+  all: unset;
+
+  display: list-item;
+  list-style-type: none;
+
+  margin-bottom: 0.2rem;
+  
+  font-size: 4rem;
+  color: #b6b6b6;
+  text-align: center;
+  background-image: linear-gradient(135deg, #575757, #222222);
+
+  border: 2px solid #b6b6b6;
+  border-radius: 0.5rem;
+}
+
+nav li:hover{
+  color: #222222;
+  background-image: radial-gradient(circle, #b6b6b6, #222222);
+
+}
+
+nav ul{
+  padding-left: 0rem;
+}
+
+nav li a{
+  all: unset;
+
+  text-decoration: none;
+  font-family: "Dancing Script";
+}
+
+nav li a:visited{
+  color: inherit;
+}
+
+
+nav .menu-vert li{
+  width: 10%;
+}
+
+nav .menu-hor{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  display: flex;
+  margin-left: 0;
+}
+
+nav .menu-hor li{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-image: linear-gradient(-45deg, #575757, #222222);
+}
+nav .menu-hor li:hover{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-image: radial-gradient(circle, #b6b6b6, #222222);
+}
+
+table {
+  font-size: 3em;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #b6b6b6;
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+th, td {
+  padding: 20px;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+thead th, tfoot th, tfoot td {
+  background-image: url(noise.png);
+  color: white;
+  background-color: #000000;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #414141;
+}
+
+tbody tr {
+  background-image: url(noise.png);
+}
+
+caption {
+  padding: 20px;
+  caption-side: bottom;
+  text-align: right;
+  letter-spacing: 1px;
+}
