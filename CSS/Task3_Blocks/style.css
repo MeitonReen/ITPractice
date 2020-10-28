@@ -103,7 +103,10 @@ nav li a:visited{
   color: inherit;
 }
 
-
+nav .menu-vert{
+  display: flex;
+  flex-direction: column;
+}
 nav .menu-vert li{
   width: 10%;
 }
