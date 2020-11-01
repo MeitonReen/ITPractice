@@ -41,3 +41,18 @@ function result() {
 }
 
 randomize.addEventListener('click', result);
+
+let animal = {
+  eats: true,
+  walk() {
+    /* этот метод не будет использоваться в rabbit */
+  }
+};
+
+let rabbit = {
+  __proto__: animal
+};
+
+rabbit.eats = false;
+let p = animal.eats;
+;
